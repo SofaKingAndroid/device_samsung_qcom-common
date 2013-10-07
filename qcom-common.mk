@@ -32,7 +32,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
     persist.hwc.mdpcomp.enable=true \
     debug.mdpcomp.logs=0 \
-    ro.telephony.ril_class=SamsungQualcommRIL
+    ro.telephony.ril_class=SamsungQualcommRIL \
+    qcom.hw.aac.encoder=true
 
 # GalaxyS3Settings
 # TODO: Move here
@@ -59,12 +60,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     e2fsck \
     setup_fs
-
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-    system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-    system/extras/bugmailer/send_bug:system/bin/send_bug
 
 # Thermal profiles
 PRODUCT_PACKAGES += \
@@ -101,3 +96,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += charger charger_res_images
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+# Common overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/qcom-common/overlay
